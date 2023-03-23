@@ -1,0 +1,19 @@
+.nav {
+  .nav__container {
+    margin: -5px auto;
+    .nav__list {
+      .nav__listNav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .nav__listnav2 {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        .nav__item {
+        }
+      }
+    }
+  }
+}

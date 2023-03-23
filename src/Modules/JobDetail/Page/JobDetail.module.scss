@@ -1,0 +1,26 @@
+.jobDetail {
+  .jobDetail__container {
+    .jobDetail__header {
+    }
+    .jobDetail__navBar {
+    }
+    .jobDetail__mainContent {
+      padding: 35px 50px;
+      .mainContent__wrapper {
+        .mainContent__onGoingNav {
+        }
+        .mainContent__header {
+        }
+        .mainContent__subHeader {
+        }
+        .mainContent__jobAvatar {
+          & > img {
+            width: 100%;
+            height: 400px;
+            margin: 15px 0px;
+          }
+        }
+      }
+    }
+  }
+}

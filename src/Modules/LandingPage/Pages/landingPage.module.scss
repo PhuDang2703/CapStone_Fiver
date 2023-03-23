@@ -1,0 +1,36 @@
+@import '../../../index.scss' ;
+
+.landingPage {
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  .slider {
+    width: 100%;
+    z-index: -10;
+    position: relative;
+    .sliderHeaderContainer {
+      position: absolute;
+      height: 680px;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      width: 1200px;
+      margin: auto;
+    }
+  }
+
+  .services {
+    margin-top: 200px;
+  }
+  .freelance {
+  }
+  .marketPlace {
+    margin-top: 100px;
+  }
+}
+@include responsive (mobile) {
+  
+}

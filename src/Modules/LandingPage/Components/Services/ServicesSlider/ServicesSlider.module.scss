@@ -1,0 +1,22 @@
+.mySwiper {
+  .slideWrapper {
+    width: 293px;
+    height: 345px;
+    position: relative;
+    .slideHeader {
+      position: absolute;
+      top: -15px;
+      left: 20px;
+      text-align: left;
+      color: #ffffff;
+      z-index: 2;
+      & > h3 {
+        margin-top: -20px;
+        color: #ffffff;
+      }
+      & > h6 {
+        color: #ffffff;
+      }
+    }
+  }
+}

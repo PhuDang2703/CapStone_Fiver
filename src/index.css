@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #62646a;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #404145;
+  font-family: Macan, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-weight: 700;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+a {
+  text-decoration: none;
+}
+.MuiCardHeader-title {
+  font-size: 18px;
+}
+.MuiCardHeader-subheader {
+  font-size: 14px;
+}
+.MuiSlider-thumb {
+  width: 0 !important;
+  height: 0 !important;
+}
+.MuiInputBase-root {
+  height: 100%;
+}
+.MuiInput .MuiOutlinedInput-root {
+  height: 100%;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.MuiOutlinedInput-root::placeholder {
+  margin-left: 15px;
+}
+
+.MuiOutlinedInput-root:before {
+  border-bottom: none;
+}
+.MuiOutlinedInput-root {
+  border-bottom: none !important;
+}

@@ -1,0 +1,20 @@
+.nav__item {
+  &:hover {
+    background-color: #fff;
+  }
+  & > a {
+    padding: 8px 0px;
+    margin: -8px 0px;
+    transition: all 0.3s ease;
+  }
+  & > a:hover {
+    border-bottom: 4px solid #1dbf73;
+    background-color: #fff;
+  }
+
+  .navItem__navContent {
+    & > a {
+      margin-top: 5px;
+    }
+  }
+}

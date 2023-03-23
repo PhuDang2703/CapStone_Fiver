@@ -1,0 +1,18 @@
+.nav__light {
+  color: #fff;
+  border-color: #fff;
+}
+.join__button {
+  color: #1dbf73 !important;
+  border-color: #1dbf73 !important;
+  &:hover {
+    color: #fff !important;
+  }
+}
+
+.signin__button {
+  color: #74767e !important;
+  &:hover {
+    color: #1dbf73 !important;
+  }
+}
