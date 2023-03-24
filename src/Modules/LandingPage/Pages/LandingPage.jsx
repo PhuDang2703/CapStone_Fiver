@@ -5,6 +5,7 @@ import SliderHeader from '../Components/Slider/SliderHeader/SliderHeader';
 import Services from '../Components/Services/Services';
 import Freelance from '../Components/Freelance/Freelance';
 import MarketPlace from '../Components/MarketPlace/MarketPlace';
+import FiverrBusiness from '../Components/FiverrBusiness/FiverrBusiness';
 import styles from './landingPage.module.scss';
 import ScrollToTop from 'react-scroll-to-top';
 const LandingPage = () => {
@@ -25,6 +26,9 @@ const LandingPage = () => {
       </div>
       <div className={styles.marketPlace}>
         <MarketPlace />
+      </div>
+      <div className={styles.marketPlace}>
+        <FiverrBusiness />
       </div>
       <ScrollToTop smooth width={'30px'} height={'30px'} color={'#1dbf73'} />
     </div>

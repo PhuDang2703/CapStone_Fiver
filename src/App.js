@@ -6,6 +6,8 @@ import UserProfile from "./Modules/UserProfile/Page/UserProfile";
 import JobList from "./Modules/JobList/Page/JobList";
 import JobDetail from "./Modules/JobDetail/Page/JobDetail";
 import Admin from "./Admin";
+import { DatePicker } from 'antd';
+
 function App() {
   return (
     <>
