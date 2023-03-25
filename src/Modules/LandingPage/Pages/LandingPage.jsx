@@ -6,8 +6,13 @@ import Services from '../Components/Services/Services';
 import Freelance from '../Components/Freelance/Freelance';
 import MarketPlace from '../Components/MarketPlace/MarketPlace';
 import FiverrBusiness from '../Components/FiverrBusiness/FiverrBusiness';
+import FiverrLogoMaker from '../Components/FiverrLogoMaker/FiverrLogoMaker';
+import OurFreelancers from '../Components/Services copy/OurFreelancers';
+import FiverrGuides from '../Components/FiverrGuides/FiverrGuides';
+
 import styles from './landingPage.module.scss';
 import ScrollToTop from 'react-scroll-to-top';
+
 const LandingPage = () => {
   return (
     <div className={styles.landingPage}>
@@ -30,6 +35,16 @@ const LandingPage = () => {
       <div className={styles.marketPlace}>
         <FiverrBusiness />
       </div>
+      <div className={styles.logoMaker}>
+        <FiverrLogoMaker />
+      </div>
+      <div style={{backgroundColor: '#f5f5f5'}} className={styles.ourFreelancers}>
+        <OurFreelancers />
+      </div>
+      <div className={styles.fiverrGuides}>
+        <FiverrGuides />
+      </div>
+      
       <ScrollToTop smooth width={'30px'} height={'30px'} color={'#1dbf73'} />
     </div>
   );

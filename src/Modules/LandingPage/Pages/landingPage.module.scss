@@ -1,14 +1,16 @@
-@import '../../../index.scss' ;
+@import '../../../index.scss';
 
 .landingPage {
   position: relative;
   top: 0;
   left: 0;
   z-index: 5;
+
   .slider {
     width: 100%;
     z-index: -10;
     position: relative;
+
     .sliderHeaderContainer {
       position: absolute;
       height: 680px;
@@ -25,12 +27,26 @@
   .services {
     margin-top: 200px;
   }
+
   .freelance {
+    margin-top: 96px;
   }
+
   .marketPlace {
-    margin-top: 100px;
+    margin-top: 96px;
+  }
+  .logoMaker {
+    margin-top: 96px;
+  }
+  .fiverrGuides{
+    margin-top: 96px;
   }
 }
-@include responsive (mobile) {
-  
+
+.ourFreelancers {
+  margin-top: 96px;
+  padding-bottom: 96px;
+  padding-top: 96px;
 }
+
+@include responsive (mobile) {}

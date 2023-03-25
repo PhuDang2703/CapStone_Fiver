@@ -1,6 +1,5 @@
 import React from 'react'
 import './FiverrBusiness.css'
-// import AcUnitIcon from '@material-ui/icons/AcUnit';
 import { CheckCircleOutlined } from '@ant-design/icons/lib/icons'
 
 export default function FiverrBusiness() {
