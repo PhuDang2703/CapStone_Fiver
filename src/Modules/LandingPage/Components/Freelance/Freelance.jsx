@@ -5,7 +5,7 @@ import CheckCircleOutlineOutlinedIcon from '@mui/icons-material/CheckCircleOutli
 const Freelance = () => {
   return (
     <section className={styles.freelance}>
-      <Container>
+      <div className='container'>
         <div className={styles.contentWrapper}>
           <div className={styles.content}>
             <h2> A whole world of freelance talent at your fingertips</h2>
@@ -84,7 +84,7 @@ const Freelance = () => {
             </div>
           </div>
         </div>
-      </Container>
+      </div>
     </section>
   );
 };

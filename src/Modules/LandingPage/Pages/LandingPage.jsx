@@ -2,6 +2,7 @@ import React from 'react';
 import Slider from '../Components/Slider/Slider';
 import { Box, Container } from '@mui/material';
 import SliderHeader from '../Components/Slider/SliderHeader/SliderHeader';
+import TrustBy from '../Components/TrustBy/TrustBy';
 import Services from '../Components/Services/Services';
 import Freelance from '../Components/Freelance/Freelance';
 import MarketPlace from '../Components/MarketPlace/MarketPlace';
@@ -23,6 +24,9 @@ const LandingPage = () => {
         </div>
       </div>
 
+      <div style={{backgroundColor: '#fafafa'}}>
+        <TrustBy />
+      </div>
       <div className={styles.services}>
         <Services />
       </div>

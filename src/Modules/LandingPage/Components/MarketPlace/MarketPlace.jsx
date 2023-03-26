@@ -61,7 +61,7 @@ const MarketPlace = () => {
   ];
   return (
     <section className={styles.marketPlace}>
-      <Container>
+      <div className="container">
         <header className={styles.marketPlace__header}>
           <h2>Explore the Marketplace</h2>
         </header>
@@ -70,7 +70,6 @@ const MarketPlace = () => {
             <Grid
               container
               spacing={1}
-        
             
               flexWrap={"wrap"}
               className={styles.gridContainer}
@@ -93,7 +92,7 @@ const MarketPlace = () => {
             </Grid>
           </Box>
         </div>
-      </Container>
+      </div>
       <Divider />
     </section>
   );

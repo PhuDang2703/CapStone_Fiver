@@ -26,7 +26,7 @@ export const StyledBox = styled(
 });
 const Footer = () => {
   return (
-    <>
+    <div>
       <div className={styles.landingFooter}>
         <footer className={styles.footer}>
           <Box>
@@ -168,7 +168,7 @@ const Footer = () => {
           </Grid>
         </footer>
       </div>
-    </>
+    </div>
   );
 };
 

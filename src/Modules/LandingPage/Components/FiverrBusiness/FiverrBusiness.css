@@ -80,6 +80,8 @@ color: #fff;
 .co-white {
     color: #fff;
 }
-a, a:hover {
-    color: #1dbf73;
+.business-text a:hover {
+    background-color: #19a463;
+    text-decoration: none;
+    color: #fff;
 }

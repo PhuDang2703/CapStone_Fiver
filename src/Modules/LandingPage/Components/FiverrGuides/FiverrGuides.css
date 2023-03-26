@@ -1,0 +1,55 @@
+
+/* Responsive */
+.signup-text {
+    position: relative;
+}
+
+@media only screen and (min-width: 900px) {
+    .signup-text h2 {
+        max-width: 650px;
+        padding-bottom: 24px;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .signup-text h2 {
+        max-width: 560px;
+    }
+}
+
+.signup-text h2 {
+    color: #fff;
+    padding-bottom: 40px;
+}
+
+@media only screen and (min-width: 1160px) {
+    .text-display-1 {
+        position: absolute;
+        bottom: 170px;
+        left: 70px;
+        /* font-size: 48px; */
+        line-height: 56px;
+        width: 650px;
+        color: #fff;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .text-display-1 {
+        font-size: 44px;
+        line-height: 48px;
+    }
+}
+
+/* Button */
+.signup-text a {
+    position: absolute;
+    bottom: 130px;
+    left: 70px;
+}
+
+.signup-text a:hover {
+    background-color: #19a463;
+    text-decoration: none;
+    color: #fff;
+}

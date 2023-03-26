@@ -3,7 +3,7 @@ import './FiverrLogoMaker.css'
 
 export default function FiverrLogoMaker() {
     return (
-        <div className='logo-maker-banner'>
+        <div className='logo-maker-banner container'>
             <div className='descriptions-wrapper'>
                 <p><b>fiverr</b>logo maker</p>
                 <h2 className="title font-domaine">Make an incredible logo

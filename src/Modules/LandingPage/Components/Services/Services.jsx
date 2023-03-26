@@ -5,7 +5,7 @@ import ServicesSlider from "./ServicesSlider/ServicesSlider";
 
 const Services = () => {
   return (
-    <Container maxWidth="lg">
+    <div className="container">
       <div className={styles.servicesHeader}>
         <header>
           <h2>Popular professional services</h2>
@@ -14,7 +14,7 @@ const Services = () => {
       <div className={`${styles.servicesSlider} mt-5`}>
         <ServicesSlider />
       </div>
-    </Container>
+    </div>
   );
 };
 

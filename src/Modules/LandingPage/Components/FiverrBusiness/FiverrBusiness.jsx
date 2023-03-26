@@ -5,8 +5,8 @@ import { CheckCircleOutlined } from '@ant-design/icons/lib/icons'
 export default function FiverrBusiness() {
     return (
         <div className='fib-banner-wrapper lohp-row'>
-            <div classname="fib-banner lohp-inner-row max-width-container">
-                <div className="grid grid-cols-2 gap-4 ">
+            <div classname="fib-banner lohp-inner-row">
+                <div className="grid grid-cols-2 gap-4 container">
                     <div className='business-text'>
                         
                             <p style={{color: '#fff'}}> <b>fiverr</b> business.</p>

@@ -102,6 +102,38 @@ const categories = [
   },
 ];
 
+const renderSwiperSlide = () => {
+  return (
+    categories &&
+    categories.map((item) => (
+      <SwiperSlide
+        style={{
+          cursor: "pointer",
+        }}
+        key={item.id}
+      >
+        <div className="w-full max-w-[330px] h-[237px]">
+          {/* <div className="absolute top-3 text-left left-[20px]  ">
+                  <h6 className="text-white font-medium text-sm ">
+                    {item.slogan}
+                  </h6>
+                  <h3 className="text-white text-lg ">{item.title}</h3>
+                </div> */}
+          <a href={item.href}><img src={item.imgUrl} alt={item.title} /></a>
+
+          <div className="project-info bg-white">
+            <a href="/fernandobengua?source=hplo_made_on_fiverr&pos=8" className="seller-image">
+              <img alt="Seller profile image" src="https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/0738007a913d22569fe2b049f9259526-1589210299120/db111eb4-c119-42b4-9a1d-9116601f3d22.png" loading="lazy" /></a>
+            <span className="gig-info"><b><a href="/categories/graphics-design/social-media-design?source=hplo_made_on_fiverr&pos=8">Social Media Design</a></b>
+              <a href="">by fernandobengua</a></span>
+          </div>
+
+        </div>
+      </SwiperSlide>
+    ))
+  )
+}
+
 export default function OurFreelancersSlider() {
   return (
     <div className="w-full overflow-hidden">
@@ -118,34 +150,7 @@ export default function OurFreelancersSlider() {
         speed={500}
         loop={true}
       >
-        {categories &&
-          categories.map((item) => (
-            <SwiperSlide
-              style={{
-                cursor: "pointer",
-              }}
-              key={item.id}
-            >
-              <div className="w-full max-w-[293px] h-[237px]">
-                {/* <div className="absolute top-3 text-left left-[20px]  ">
-                  <h6 className="text-white font-medium text-sm ">
-                    {item.slogan}
-                  </h6>
-                  <h3 className="text-white text-lg ">{item.title}</h3>
-                </div> */}
-                <a href={item.href}><img src={item.imgUrl} alt={item.title} /></a>
-
-                <div className="project-info bg-white">
-                  {/* <a href="/fernandobengua?source=hplo_made_on_fiverr&pos=8" className="seller-image">
-                    <img alt="Seller profile image" src="https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/0738007a913d22569fe2b049f9259526-1589210299120/db111eb4-c119-42b4-9a1d-9116601f3d22.png" loading="lazy" /></a>
-                    <span className="gig-info"><b><a href="/categories/graphics-design/social-media-design?source=hplo_made_on_fiverr&pos=8">Social Media Design</a></b>
-                    <a href="">by fernandobengua</a></span> */}
-                    <h1>hello</h1>
-                    </div>
-
-              </div>
-            </SwiperSlide>
-          ))}
+        {renderSwiperSlide()}
       </Swiper>
     </div>
   );
