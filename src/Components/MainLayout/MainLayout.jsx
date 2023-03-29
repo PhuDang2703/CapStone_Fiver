@@ -7,6 +7,7 @@ import {
   getJobsById,
   getJobsByName,
 } from "../../Modules/JobList/Slices/JobListSlice";
+
 import LandingPage from "../../Modules/LandingPage/Pages/LandingPage";
 import UserProfileHeader from "../../Modules/UserProfile/Components/Header/UserProfileHeader";
 import Footer from "../Footer/Footer";
@@ -14,6 +15,7 @@ import Header from "../Header/Header";
 import Loading from "../Loading/Loading";
 import NavBar from "../NavBar/NavBar";
 import styles from "./MainLayout.module.scss";
+
 const MainLayout = () => {
   const [color, setColor] = useState(false);
   const handleChangeColor = () => {
@@ -72,9 +74,9 @@ const MainLayout = () => {
             )}
           </div>
           <LandingPage />
-          <Container>
+          <div className="container">
             <Footer />
-          </Container>
+          </div>
         </div>
       );
     }

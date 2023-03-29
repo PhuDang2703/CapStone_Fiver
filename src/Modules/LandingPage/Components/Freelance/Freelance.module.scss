@@ -1,16 +1,13 @@
 .freelance {
   background-color: #f1fdf7;
-  height: 720px;
   margin-top: 100px;
   .contentWrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 200px;
     padding: 96px 32px;
-    margin: 0 -32px;
     .content {
-      width: 40%;
+      width: 50%;
       padding-right: 11%;
       & > h2 {
         font-size: 32px;
@@ -38,7 +35,7 @@
       }
     }
     .video {
-      width: 60%;
+      width: 50%;
       .videoWrapper {
         width: 100%;
         & img {

@@ -88,12 +88,11 @@ const MarketPlace = () => {
                   </Grid>
               )})}
           
-
             </Grid>
           </Box>
         </div>
       </div>
-      <Divider />
+      {/* <Divider /> */}
     </section>
   );
 };

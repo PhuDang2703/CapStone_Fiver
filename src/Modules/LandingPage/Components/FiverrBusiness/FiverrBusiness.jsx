@@ -6,16 +6,16 @@ export default function FiverrBusiness() {
     return (
         <div className='fib-banner-wrapper lohp-row'>
             <div classname="fib-banner lohp-inner-row">
-                <div className="grid grid-cols-2 gap-4 container">
+                <div className="fiverrbusiness grid grid-cols-2 container">
                     <div className='business-text'>
                         
-                            <p style={{color: '#fff'}}> <b>fiverr</b> business.</p>
+                            <p style={{color: '#fff', paddingBottom: 32, fontSize: 28}}> <b>fiverr</b> business.</p>
                             <h2 className="font-domaine text-white"><span>A business solution designed for <i>teams</i></span></h2>
                             <p className="tbody-4">Upgrade to a curated experience packed with tools and benefits, dedicated to businesses</p>
-                        <ul>
-                            <li> <span><CheckCircleOutlined /></span> Connect to freelancers with proven business experience</li>
-                            <li><span><CheckCircleOutlined /></span>Get matched with the perfect talent by a customer success manager</li>
-                            <li><span><CheckCircleOutlined /></span>Manage teamwork and boost productivity with one powerful workspace</li>
+                        <ul style={{marginBottom: 48}}>
+                            <li><span><CheckCircleOutlined /></span> Connect to freelancers with proven business experience</li>
+                            <li><span><CheckCircleOutlined /></span> Get matched with the perfect talent by a customer success manager</li>
+                            <li><span><CheckCircleOutlined /></span> Manage teamwork and boost productivity with one powerful workspace</li> 
                         </ul>
                         <a class="ZQi_S8t AOOSxop co-white bg-co-green-700" target="_blank" href="https://business.fiverr.com/business?source=LOHP_business_banner">Explore Fiverr Business</a>
 

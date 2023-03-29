@@ -5,8 +5,8 @@ export default function FiverrLogoMaker() {
     return (
         <div className='logo-maker-banner container'>
             <div className='descriptions-wrapper'>
-                <p><b>fiverr</b>logo maker</p>
-                <h2 className="title font-domaine">Make an incredible logo
+                <p><b>fiverr</b> logo maker</p>
+                <h2 className="title font-domaine"><b>Make an incredible logo</b> 
                     <br />
                     <i>in minutes</i></h2>
                 <div class="description">Pre-designed by top talent. Just add your touch.</div>

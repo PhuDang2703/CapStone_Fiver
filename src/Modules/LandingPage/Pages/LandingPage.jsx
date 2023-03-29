@@ -36,7 +36,7 @@ const LandingPage = () => {
       <div className={styles.marketPlace}>
         <MarketPlace />
       </div>
-      <div className={styles.marketPlace}>
+      <div className={styles.fiverrbusiness}>
         <FiverrBusiness />
       </div>
       <div className={styles.logoMaker}>

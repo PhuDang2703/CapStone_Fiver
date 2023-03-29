@@ -42,6 +42,13 @@
 }
 
 /* Button */
+
+.container img {
+    transition: all .5s;
+}
+.container img:hover{
+    opacity: .85;
+}
 .signup-text a {
     position: absolute;
     bottom: 130px;
