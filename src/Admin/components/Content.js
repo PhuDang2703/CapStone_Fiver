@@ -1,7 +1,6 @@
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
@@ -19,10 +18,14 @@ import {
   TablePagination,
   TableRow,
 } from "@mui/material";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getUser } from "../../Modules/UserProfile/Slices/userProfileSlice";
+
 
 const columns = [
-  { id: "name", label: "Username", minWidth: 120 },
-  { id: "code", label: "Name", minWidth: 170 },
+  { id: "name", label: "Id", minWidth: 50 },
+  { id: "code", label: "Name", minWidth: 150 },
   {
     id: "email",
     label: "Email",
@@ -30,35 +33,53 @@ const columns = [
     align: "left",
   },
   {
-    id: "password",
-    label: "Password",
-    minWidth: 150,
+    id: "avatar",
+    label: "Avatar",
+    minWidth: 120,
     align: "left",
   },
 
   {
     id: "phoneNumber",
     label: "Phone Number",
-    minWidth: 100,
+    minWidth: 150,
     align: "left",
   },
   {
-    id: "userType",
-    label: "User Type",
+    id: "role",
+    label: "Role",
     minWidth: 100,
-    align: "center",
+    align: "left",
   },
   {
     id: "action",
     label: "Action",
     minWidth: 100,
-    align: "center",
+    align: "left",
   },
 ];
 
+function createData(name, calories, fat, carbs, protein) {
+  return { name, calories, fat, carbs, protein };
+}
+
+const rows = [
+  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
+  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
+  createData('Eclair', 262, 16.0, 24, 6.0),
+  createData('Cupcake', 305, 3.7, 67, 4.3),
+  createData('Gingerbread', 356, 16.0, 49, 3.9),
+];
+
+
 export default function Content() {
+
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const dispatch = useDispatch();
+  const {userInfo} = useSelector((state)=> state.user)
+  console.log(userInfo)
+
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -66,8 +87,13 @@ export default function Content() {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+
+  useEffect(() => {
+    dispatch(getUser())
+  }, [])
+
   return (
-    <Paper sx={{ maxWidth: 936, margin: "auto", overflow: "hidden" }}>
+    <Paper sx={{ maxWidth: 1400, margin: "auto", overflow: "hidden" }}>
       <AppBar
         position="static"
         color="default"
@@ -104,7 +130,9 @@ export default function Content() {
         </Toolbar>
       </AppBar>
       <Paper sx={{ width: "100%", overflow: "hidden" }}>
-        <TableContainer sx={{ maxHeight: 600 }}>
+
+        {/* Table  */}
+        <TableContainer sx={{ maxHeight: 800 }}>
           <Table stickyHeader aria-label="sticky table">
             <TableHead>
               <TableRow>
@@ -119,11 +147,30 @@ export default function Content() {
                 ))}
               </TableRow>
             </TableHead>
+
             <TableBody>
-              <TableRow></TableRow>
+              {rows.map((row) => (
+                <TableRow
+                  key={row.name}
+                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                >
+                  <TableCell component="th" scope="row">
+                    {row.name}
+                  </TableCell>
+                  <TableCell align="left">{row.calories}</TableCell>
+                  <TableCell align="left">{row.fat}</TableCell>
+                  <TableCell align="left">{row.carbs}</TableCell>
+                  <TableCell align="left">{row.protein}</TableCell>
+                  <TableCell align="left">{row.protein}</TableCell>
+                  <TableCell align="left">{row.protein}</TableCell>
+                </TableRow>
+              ))}
             </TableBody>
+
           </Table>
         </TableContainer>
+
+
         <TablePagination
           rowsPerPageOptions={[10, 25, 100]}
           component="div"
@@ -138,45 +185,4 @@ export default function Content() {
   );
 }
 
-{
-  /* <TableBody>
-              {users
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((user) => {
-                  return (
-                    <TableRow
-                      hover
-                      role="checkbox"
-                      tabIndex={-1}
-                      key={user.taiKhoan}
-                    >
-                      <TableCell sx={{ fontWeight: "bold" }}>
-                        {user.taiKhoan}
-                      </TableCell>
-                      <TableCell sx={{ fontWeight: "bold" }}>
-                        {user.hoTen}
-                      </TableCell>
-                      <TableCell align="left">{user.email}</TableCell>
-                      <TableCell align="left">{user.matKhau}</TableCell>
-                      <TableCell align="left">{user.soDT}</TableCell>
-                      <TableCell align="center">
-                        {user.maLoaiNguoiDung}
-                      </TableCell>
-                      <TableCell align="center">
-                        <Link to={`updateUser/${user.taiKhoan}`}>
-                          <EditIcon
-                            className="mr-2 cursor-pointer"
-                            sx={{ color: "blue", fontSize: "30px" }}
-                          />
-                        </Link>
-                        <UserConfirmPopUp
-                          userData={user}
-                          isOpen={false}
-                          onClose={handleClose}
-                        />
-                      </TableCell>
-                    </TableRow>
-                  );
-                })}
-            </TableBody> */
-}
+

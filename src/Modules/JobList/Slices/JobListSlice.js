@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import jobListAPI from "../../../Apis/jobListAPI";
-import { useSnackbar } from "notistack";
+
 
 export const getJobGenres = createAsyncThunk(
   "jobList/getJobGenre",
@@ -72,6 +72,7 @@ export const getJobCommentById = createAsyncThunk(
     }
   }
 );
+
 
 const jobListSlice = createSlice({
   name: "jobList",

@@ -29,6 +29,7 @@ const MainLayout = () => {
   const { isLoading } = useSelector((state) => state.jobList.settings);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  
   const handleChange = (event) => {
     setInputValue(event.target.value);
   };

@@ -50,7 +50,7 @@ function HeaderAdmin(props) {
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                Go to docs
+                Go to home
               </Link>
             </Grid>
             <Grid item>
@@ -68,6 +68,7 @@ function HeaderAdmin(props) {
           </Grid>
         </Toolbar>
       </AppBar>
+      
       <AppBar
         component="div"
         color="primary"
@@ -79,7 +80,7 @@ function HeaderAdmin(props) {
           <Grid container alignItems="center" spacing={1}>
             <Grid item xs>
               <Typography color="inherit" variant="h5" component="h1">
-                Users
+                Users Information
               </Typography>
             </Grid>
             <Grid item>
@@ -102,18 +103,19 @@ function HeaderAdmin(props) {
           </Grid>
         </Toolbar>
       </AppBar>
+
       <AppBar
         component="div"
         position="static"
         elevation={0}
         sx={{ zIndex: 0 }}
       >
-        <Tabs value={0} textColor="inherit">
+        {/* <Tabs value={0} textColor="inherit">
           <Tab label="Users" />
           <Tab label="Sign-in method" />
           <Tab label="Templates" />
           <Tab label="Usage" />
-        </Tabs>
+        </Tabs> */}
       </AppBar>
     </React.Fragment>
   );

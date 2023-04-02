@@ -1,4 +1,5 @@
 import axiosClient from './axiosClient';
+
 const userAPI = {
   updateUser(data) {
     const { id } = data;
@@ -9,6 +10,10 @@ const userAPI = {
   getUser(userId) {
     const url = `/users/${userId}`;
     return axiosClient.get(url);
+  },
+  deleteUser(userId) {
+    const url = `/users/${userId}`;
+    return axiosClient.delete(url);
   },
   getBookingJobs() {
     const url = `/thue-cong-viec/lay-danh-sach-da-thue`;

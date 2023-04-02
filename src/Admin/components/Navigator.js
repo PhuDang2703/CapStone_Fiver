@@ -57,6 +57,7 @@ export default function Navigator(props) {
           </ListItemIcon>
           <ListItemText>Home</ListItemText>
         </ListItem>
+        
         {categories.map(({ id, children }) => (
           <Box key={id} sx={{ bgcolor: "#101F33" }}>
             <ListItem sx={{ py: 2, px: 3 }}>
@@ -74,6 +75,7 @@ export default function Navigator(props) {
             <Divider sx={{ mt: 2 }} />
           </Box>
         ))}
+
       </List>
     </Drawer>
   );

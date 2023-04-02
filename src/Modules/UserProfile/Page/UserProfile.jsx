@@ -10,6 +10,8 @@ import ActiveGig from "../Components/ActiveGig/ActiveGig";
 import UserProfileHeader from "../Components/Header/UserProfileHeader";
 import Profile from "../Components/Profile/Profile";
 import styles from "./UserProfile.module.scss";
+
+
 const UserProfile = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -24,6 +26,8 @@ const UserProfile = () => {
   useEffect(() => {
     dispatch(getJobGenres());
   }, []);
+
+
   return (
     <div className={styles.userProfile}>
       <div>

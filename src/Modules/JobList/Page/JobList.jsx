@@ -15,17 +15,21 @@ import {
   getJobsByName,
 } from "../Slices/JobListSlice";
 import styles from "./JobList.module.scss";
+
+
 const JobList = () => {
   const dispatch = useDispatch();
   const { jobsByName } = useSelector((state) => state.jobList);
   const { isLoading, error } = useSelector((state) => state.jobList.settings);
   const { currentJobs } = useSelector((state) => state?.jobList);
+  console.log(currentJobs)
 
   const [inputValue, setInputValue] = React.useState("");
   const navigate = useNavigate();
   const handleChange = (event) => {
     setInputValue(event.target.value);
   };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -47,9 +51,11 @@ const JobList = () => {
   // useEffect(() => {
   //   dispatch(getJobsByName(inputValue));
   // }, [handleSubmit]);
+
   useEffect(() => {
     dispatch(getJobGenres());
   }, []);
+
   return (
     <div className={styles.jobList}>
       <div className={styles.jobList__container}>

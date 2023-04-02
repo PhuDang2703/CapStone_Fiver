@@ -1,5 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import userAPI from "../../../Apis/userAPI";
+
+// User
 export const updateUser = createAsyncThunk(
   "user/update",
   async (userData, { rejectWithValue, dispatch }) => {
@@ -26,6 +28,8 @@ export const getUser = createAsyncThunk(
     }
   }
 );
+
+// Booking jobs
 export const getBookingJobs = createAsyncThunk(
   "user/bookingJobs",
   async (_, { rejectWithValue }) => {
@@ -62,6 +66,8 @@ export const bookJob = createAsyncThunk(
     }
   }
 );
+
+
 const userSlice = createSlice({
   name: "user",
   initialState: {
