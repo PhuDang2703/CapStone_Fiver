@@ -9,88 +9,126 @@ import Tooltip from "@mui/material/Tooltip";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 import RefreshIcon from "@mui/icons-material/Refresh";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TablePagination,
-  TableRow,
-} from "@mui/material";
+// import {
+//   Table,
+//   TableBody,
+//   TableCell,
+//   TableContainer,
+//   TableHead,
+//   TablePagination,
+//   TableRow,
+// } from "@mui/material";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getUser } from "../../Modules/UserProfile/Slices/userProfileSlice";
+import { getUsersAdmin } from "../Slices/usersSlice";
+import { NavLink } from "react-router-dom/dist";
+import { EditOutlined, CalendarOutlined, DeleteOutlined } from "@ant-design/icons";
+import { Fragment } from "react";
+import { Table } from 'antd';
 
-
-const columns = [
-  { id: "name", label: "Id", minWidth: 50 },
-  { id: "code", label: "Name", minWidth: 150 },
-  {
-    id: "email",
-    label: "Email",
-    minWidth: 180,
-    align: "left",
-  },
-  {
-    id: "avatar",
-    label: "Avatar",
-    minWidth: 120,
-    align: "left",
-  },
-
-  {
-    id: "phoneNumber",
-    label: "Phone Number",
-    minWidth: 150,
-    align: "left",
-  },
-  {
-    id: "role",
-    label: "Role",
-    minWidth: 100,
-    align: "left",
-  },
-  {
-    id: "action",
-    label: "Action",
-    minWidth: 100,
-    align: "left",
-  },
-];
-
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
-
-const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
 
 
 export default function Content() {
 
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const dispatch = useDispatch();
-  const {userInfo} = useSelector((state)=> state.user)
+  const { userInfo } = useSelector((state) => state.usersAdmin)
   console.log(userInfo)
 
-  const handleChangePage = (event, newPage) => {
-    setPage(newPage);
-  };
-  const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(+event.target.value);
-    setPage(0);
-  };
-
   useEffect(() => {
-    dispatch(getUser())
+    dispatch(getUsersAdmin())
   }, [])
+
+  const columns = [
+    {
+      title: 'Id',
+      dataIndex: 'id',
+      sorter: (a, b) => a.id - b.id,
+      sortDirections: ['descend', 'ascend'],
+      width: '10%'
+      // sortOrder:'descend'
+    },
+    {
+      title: 'Avatar',
+      dataIndex: 'avatar',
+      render: (text, users, index) => {
+        return <Fragment>
+          <img src={users.avatar} alt={users.name} width={60} height={60} onError={(e) => { e.target.onError = null; e.target.src = `https://picsum.photos/id/${index}/50/50` }} />
+        </Fragment>
+      },
+      width: '15%'
+      // sorter: (a, b) => a.age - b.age,
+    },
+    {
+      title: 'Email',
+      dataIndex: 'email',
+      sorter: (a, b) => {
+        let emailA = a.email.toLowerCase().trim();
+        let emailB = b.email.toLowerCase().trim();
+        if (emailA > emailB) {
+          return 1;
+        }
+        return -1;
+      },
+      sortDirections: ['descend', 'ascend'],
+      width: '25%'
+    },
+    {
+      title: 'Phone Number',
+      dataIndex: 'phoneNumber',
+      render: (text, users) => {
+        return <Fragment>
+          {users.phone.length > 50 ? users.phone.substr(0, 50) + ' ...' : users.phone}
+        </Fragment>
+      },
+      sortDirections: ['descend', 'ascend'],
+      width: '20%'
+    },
+    {
+      title: 'Role',
+      dataIndex: 'role',
+      // sorter: (a, b) => {
+      //     let roleA = a.role.toLowerCase().trim();
+      //     let roleB = b.role.toLowerCase().trim();
+      //     if(roleA > roleB) {
+      //         return 1;
+      //     }
+      //     return -1;
+      // },
+      render: (text, users) => {
+        return <Fragment>
+          {users.role.length > 50 ? users.role.substr(0, 50) + ' ...' : users.role}
+        </Fragment>
+      },
+      sortDirections: ['descend', 'ascend'],
+      width: '15%'
+    },
+    {
+      title: 'Action',
+      dataIndex: 'action',
+      render: (text, users) => {
+        return <Fragment>
+          <NavLink key={1} className=" mr-2  text-2xl" to={`/admin/edit/${users.id}`}><EditOutlined style={{ color: 'blue' }} /> </NavLink>
+
+          <span style={{ cursor: 'pointer' }} key={2} className="text-2xl"
+            onClick={() => {
+              //Gọi action xoá
+              if (window.confirm('Bạn có chắc muốn xoá tài khoản ' + users.email)) {
+                //Gọi action
+                // dispatch(xoaPhimAction(film.id));
+              }
+
+            }}><DeleteOutlined style={{ color: 'red' }} /> </span>
+
+        </Fragment>
+      },
+      sortDirections: ['descend', 'ascend'],
+      width: '25%'
+    },
+  ];
+
+  function onChange(pagination, filters, sorter, extra) {
+    console.log('params', pagination, filters, sorter, extra);
+  }
 
   return (
     <Paper sx={{ maxWidth: 1400, margin: "auto", overflow: "hidden" }}>
@@ -132,54 +170,9 @@ export default function Content() {
       <Paper sx={{ width: "100%", overflow: "hidden" }}>
 
         {/* Table  */}
-        <TableContainer sx={{ maxHeight: 800 }}>
-          <Table stickyHeader aria-label="sticky table">
-            <TableHead>
-              <TableRow>
-                {columns.map((column) => (
-                  <TableCell
-                    key={column.id}
-                    align={column.align}
-                    style={{ minWidth: column.minWidth }}
-                  >
-                    {column.label}
-                  </TableCell>
-                ))}
-              </TableRow>
-            </TableHead>
 
-            <TableBody>
-              {rows.map((row) => (
-                <TableRow
-                  key={row.name}
-                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                >
-                  <TableCell component="th" scope="row">
-                    {row.name}
-                  </TableCell>
-                  <TableCell align="left">{row.calories}</TableCell>
-                  <TableCell align="left">{row.fat}</TableCell>
-                  <TableCell align="left">{row.carbs}</TableCell>
-                  <TableCell align="left">{row.protein}</TableCell>
-                  <TableCell align="left">{row.protein}</TableCell>
-                  <TableCell align="left">{row.protein}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
+        <Table columns={columns} dataSource={userInfo} onChange={onChange} rowKey={"id"} />
 
-          </Table>
-        </TableContainer>
-
-
-        <TablePagination
-          rowsPerPageOptions={[10, 25, 100]}
-          component="div"
-          // count={users.length}
-          rowsPerPage={rowsPerPage}
-          page={page}
-          onPageChange={handleChangePage}
-          onRowsPerPageChange={handleChangeRowsPerPage}
-        />
       </Paper>
     </Paper>
   );

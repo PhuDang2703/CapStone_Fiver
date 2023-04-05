@@ -11,6 +11,10 @@ const userAPI = {
     const url = `/users/${userId}`;
     return axiosClient.get(url);
   },
+  getUsersAdmin() {
+    const url = `/users`;
+    return axiosClient.get(url);
+  },
   deleteUser(userId) {
     const url = `/users/${userId}`;
     return axiosClient.delete(url);
