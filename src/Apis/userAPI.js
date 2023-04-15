@@ -11,14 +11,20 @@ const userAPI = {
     const url = `/users/${userId}`;
     return axiosClient.get(url);
   },
-  getUsersAdmin() {
+  getUsersAdmin(formData) {
     const url = `/users`;
-    return axiosClient.get(url);
+    return axiosClient.get(url, formData);
+  },
+  addUsersAdmin() {
+    const url = `/users`;
+    return axiosClient.post(url);
   },
   deleteUser(userId) {
-    const url = `/users/${userId}`;
+    const url = `/users?id=${userId}`;
     return axiosClient.delete(url);
   },
+  
+  // BookJobs
   getBookingJobs() {
     const url = `/thue-cong-viec/lay-danh-sach-da-thue`;
     return axiosClient.get(url);

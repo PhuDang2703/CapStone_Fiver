@@ -19,16 +19,18 @@ export const registerUser = createAsyncThunk(
 
 export const loginUser = createAsyncThunk(
   "auth/register",
-  async (loginData, { rejectWithValue }) => {
+  async (loginData, { rejectWithValue, navigate }) => {
     try {
       const { data } = await authAPI.login(loginData);
 
       localStorage.setItem("user", JSON.stringify(data.content.user));
       localStorage.setItem("access_token", JSON.stringify(data.content.token));
       console.log(data);
+      navigate('/admin')
       return data.content.user;
     } catch (error) {
       console.log(error.response.data.content);
+      rejectWithValue(error);
       throw error.response.data.content;
     }
   }

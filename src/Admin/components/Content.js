@@ -20,8 +20,8 @@ import RefreshIcon from "@mui/icons-material/Refresh";
 // } from "@mui/material";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getUsersAdmin } from "../Slices/usersSlice";
-import { NavLink } from "react-router-dom/dist";
+import { deleteUsersAdmin, getUsersAdmin } from "../Slices/usersSlice";
+import { NavLink, useNavigate } from "react-router-dom/dist";
 import { EditOutlined, CalendarOutlined, DeleteOutlined } from "@ant-design/icons";
 import { Fragment } from "react";
 import { Table } from 'antd';
@@ -31,6 +31,7 @@ import { Table } from 'antd';
 export default function Content() {
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { userInfo } = useSelector((state) => state.usersAdmin)
   console.log(userInfo)
 
@@ -107,14 +108,14 @@ export default function Content() {
       dataIndex: 'action',
       render: (text, users) => {
         return <Fragment>
-          <NavLink key={1} className=" mr-2  text-2xl" to={`/admin/edit/${users.id}`}><EditOutlined style={{ color: 'blue' }} /> </NavLink>
+          <NavLink key={1} className=" mr-2  text-2xl" to={`/editusers/${users.id}`}><EditOutlined style={{ color: 'blue' }} /> </NavLink>
 
           <span style={{ cursor: 'pointer' }} key={2} className="text-2xl"
             onClick={() => {
               //Gọi action xoá
               if (window.confirm('Bạn có chắc muốn xoá tài khoản ' + users.email)) {
                 //Gọi action
-                // dispatch(xoaPhimAction(film.id));
+                dispatch(deleteUsersAdmin(users.id));
               }
 
             }}><DeleteOutlined style={{ color: 'red' }} /> </span>
@@ -155,7 +156,9 @@ export default function Content() {
               />
             </Grid>
             <Grid item>
-              <Button variant="contained" sx={{ mr: 1 }}>
+              <Button onClick={() => {
+                navigate('/addusers')
+              }} variant="contained" sx={{ mr: 1 }}>
                 Add user
               </Button>
               <Tooltip title="Reload">

@@ -10,6 +10,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import * as React from "react";
+import { NavLink } from "react-router-dom";
 
 export const categories = [
   {
@@ -55,9 +56,11 @@ export default function Navigator(props) {
           <ListItemIcon>
             <HomeIcon />
           </ListItemIcon>
-          <ListItemText>Home</ListItemText>
+          <NavLink to={'/'}>
+            <ListItemText>Home</ListItemText>
+          </NavLink>
         </ListItem>
-        
+
         {categories.map(({ id, children }) => (
           <Box key={id} sx={{ bgcolor: "#101F33" }}>
             <ListItem sx={{ py: 2, px: 3 }}>

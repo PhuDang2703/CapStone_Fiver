@@ -8,6 +8,7 @@ import Link from "@mui/material/Link";
 import Navigator from "./components/Navigator";
 import HeaderAdmin from "./components/Header";
 import Content from "./components/Content";
+import { Outlet } from "react-router-dom";
 
 function Copyright() {
   return (
@@ -178,6 +179,8 @@ export default function Admin() {
     <ThemeProvider theme={theme}>
       <Box sx={{ display: "flex", minHeight: "100vh" }}>
         <CssBaseline />
+
+        {/* Navigate left */}
         <Box
           component="nav"
           sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
@@ -190,12 +193,13 @@ export default function Admin() {
               onClose={handleDrawerToggle}
             />
           )}
-
           <Navigator
             PaperProps={{ style: { width: drawerWidth } }}
             sx={{ display: { sm: "block", xs: "none" } }}
           />
         </Box>
+
+        {/* Header top */}
         <Box sx={{ flex: 1, display: "flex", flexDirection: "column" }}>
           <HeaderAdmin onDrawerToggle={handleDrawerToggle} />
           <Box
@@ -203,11 +207,13 @@ export default function Admin() {
             sx={{ flex: 1, py: 6, px: 4, bgcolor: "#eaeff1" }}
           >
             <Content />
+            {/* <Outlet/> */}
           </Box>
           <Box component="footer" sx={{ p: 2, bgcolor: "#eaeff1" }}>
             <Copyright />
           </Box>
         </Box>
+
       </Box>
     </ThemeProvider>
   );
